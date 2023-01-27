@@ -73,8 +73,8 @@ limitations under the License.
               <div class="card">
                 <div class="card-title header-body">
                   <div class="text-center col-10 offset-1">
-                    <p class="text-uppercase text-muted secondary-text">Welcome</p>
-                    <h2 class="mb-4 header-title">SIGN IN</h2>
+                    <p class="text-uppercase text-muted secondary-text">欢迎</p>
+                    <h2 class="mb-4 header-title">登录</h2>
                   </div>
                 </div>
                 <div class="card-body sign-in">
@@ -88,7 +88,7 @@ limitations under the License.
                       {% else %}
                       <form id="login-form" class="needs-validation" novalidate="" method="POST" action="/login">
                       {% endif %}
-                        <label class="text-uppercase text-muted secondary-text" for="username">Username</label>
+                        <label class="text-uppercase text-muted secondary-text" for="username">用户名</label>
                         <div class="input-group mt-2d mb-5">
                           <div class="input-group-prepend mr-2">
                             <span class="input-group-text"><span class="material-icons">account_circle</span></span>
@@ -98,7 +98,7 @@ limitations under the License.
                             Please enter your username.
                           </div>
                         </div>
-                        <label class="text-uppercase text-muted secondary-text" for="password">Password</label>
+                        <label class="text-uppercase text-muted secondary-text" for="password">密码</label>
                         <div class="input-group mt-2 mb-5">
                           <div class="input-group-prepend mr-2">
                             <span class="input-group-text"><span class="material-icons">lock</span></span>
@@ -108,11 +108,11 @@ limitations under the License.
                             Please enter your password.
                         </div>
                         </div>
-                        <button class="btn btn-sign-in btn-block mb-4" type="submit">Sign in</button>
+                        <button class="btn btn-sign-in btn-block mb-4" type="submit">登录</button>
                         <small class="text-uppercase secondary-text text-muted">
-                          Not registered?
+                          没有账号?
                         </small>
-                        <a href="/signup" class="btn btn-secondary btn-block mt-2 mb-4" id="create-account-btn" type="button">Create an Account</a>
+                        <a href="/signup" class="btn btn-secondary btn-block mt-2 mb-4" id="create-account-btn" type="button">创建新账号</a>
                       </form>
                     </div>
                   </div>
@@ -125,7 +125,7 @@ limitations under the License.
       <!-- Page Footer -->
       <footer class="footer">
         <div class="container">
-            <div class="row mb-2" class="footer-google-inc">© 2020-2022 Google LLC</div>
+            <div class="row mb-2" class="footer-google-inc">© 2020-2023 JibuTech</div>
             <div class="row mb-3">
               <small>
                 <b>Cluster: </b>{{ cluster_name }}, <b>Pod: </b>{{ pod_name }}<b>, Zone: </b>{{ pod_zone }}
@@ -134,7 +134,7 @@ limitations under the License.
             <div class="row mb-3">
               <small>
                 This website is hosted for demo purposes only. It is not an
-                actual bank. This is not an official Google project.
+                actual bank.
               </small>
             </div>
         </div>

@@ -104,14 +104,14 @@ limitations under the License.
           <!-- Top row - overview, account # -->
             <div class="row col-lg-12 align-items-start top-row">
               <div class="col-md-8">
-                <small class="text-uppercase text-muted secondary-text">Overview</small>
-                <h2 class="header-title">Checking Account</h2>
+                <small class="text-uppercase text-muted secondary-text">账户总览</small>
+                <h2 class="header-title">当前账户</h2>
               </div>
 
               <div class="col-md-4 account-info text-right">
                   <p>
                     <span class="account-overview account-icon material-icons">info</span>
-                    <span class="account-num-text">Account Number:</span><span class="account-number">{{ account_id }}</span>
+                    <span class="account-num-text">卡号:</span><span class="account-number">{{ account_id }}</span>
                   </p>
               </div>
           </div>
@@ -126,7 +126,7 @@ limitations under the License.
                   <div class="row align-items-start">
                     <div class="col">
                       <p class="text-uppercase mb-3">
-                        <b class="current-balance">Current Balance</b>
+                        <b class="current-balance">余额</b>
                       </p>
                       <span class="h1 mb-0" id="current-balance">
                         {{ format_currency(balance) }}
@@ -144,7 +144,7 @@ limitations under the License.
                 <div class="row align-items-start">
                   <div class="col">
                     <span class="h5 mb-0" id="depositSpan">
-                      Deposit Funds
+                      存款
                     </span>
                   </div>
                   <div class="button-icon col-auto">
@@ -161,7 +161,7 @@ limitations under the License.
               <div class="row align-items-start">
                 <div class="col">
                   <span class="h5 mb-0" id="paymentSpan">
-                    Send Payment
+                    转账
                   </span>
                 </div>
                 <div class="button-icon col-auto">
@@ -183,7 +183,7 @@ limitations under the License.
                 <div class="row align-items-start">
                   <div class="col">
                     <h4 class="card-header-title">
-                      Transaction History
+                      交易历史记录
                     </h4>
                   </div>
                 </div>
@@ -198,19 +198,19 @@ limitations under the License.
                   <thead class="text-uppercase">
                     <tr>
                       <th>
-                        <a class="text-transaction-header">Date</a>
+                        <a class="text-transaction-header">时间</a>
                       </th>
                       <th>
-                        <a class="text-transaction-header">Type</a>
+                        <a class="text-transaction-header">类型</a>
                       </th>
                       <th>
-                        <a class="text-transaction-header">Account</a>
+                        <a class="text-transaction-header">账号</a>
                       </th>
                       <th>
-                        <a class="text-transaction-header">Label</a>
+                        <a class="text-transaction-header">标签</a>
                       </th>
                       <th class="text-right">
-                        <a class="text-transaction-header">Amount</a>
+                        <a class="text-transaction-header">数额</a>
                       </th>
                     </tr>
                   </thead>
@@ -222,7 +222,7 @@ limitations under the License.
                           </td>
                           {% if t.toAccountNum == account_id %}
                             <td class="transaction-type">
-                              <span class="text-debit">●</span> Credit
+                              <span class="text-debit">●</span> 存入
                             </td>
                             <td class="transaction-account">
                               {{ t.fromAccountNum }}
@@ -239,7 +239,7 @@ limitations under the License.
                             </td>
                           {% elif t.fromAccountNum == account_id %}
                             <td class="transaction-type">
-                              <span class="text-credit">●</span> Debit
+                              <span class="text-credit">●</span> 转出
                             </td>
                             <td class="transaction-account">
                               {{ t.toAccountNum }}
@@ -271,7 +271,7 @@ limitations under the License.
             <div class="modal-content">
               <form id="deposit-form" class="needs-validation" novalidate="" method="POST" action="/deposit">
                 <div class="modal-header">
-                  <h3 class="modal-title header-title" id="exampleModalLongTitle">Make a Deposit</h3>
+                  <h3 class="modal-title header-title" id="exampleModalLongTitle">存入</h3>
                   <button type="button" class="close deposit-cancel" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -279,7 +279,7 @@ limitations under the License.
                 <div class="modal-body">
                     <div class="row">
                       <div class="col-md-10 offset-md-1 mb-4">
-                        <label class="text-uppercase text-muted secondary-text mb-3" for="accounts">External Account</label>
+                        <label class="text-uppercase text-muted secondary-text mb-3" for="accounts">来源</label>
                         <select class="custom-select d-block w-100" id="accounts" name="account">
                           {% for account in contacts %}
                             {% if account.is_external %}
@@ -325,7 +325,7 @@ limitations under the License.
                         </div>
                       </div>
                       <div class="col-md-10 offset-md-1">
-                        <label class="text-uppercase text-muted secondary-text mb-1" for="deposit-amount">Deposit Amount</label>
+                        <label class="text-uppercase text-muted secondary-text mb-1" for="deposit-amount">存入金额</label>
                         <div class="input-group mb-3">
                           <div class="input-group-prepend mr-2">
                             <span class="input-group-text"><span class="amount-font material-icons money-icon">attach_money</span></span>
@@ -342,8 +342,8 @@ limitations under the License.
                   <div class="modal-body">
                     <div class="row align-items-end text-right">
                       <div class="col-md-10 offset-md-1 text-right align-items-end">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                          <button type="submit" class="btn btn-primary btn-with-padding deposit-send-button">Deposit</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                          <button type="submit" class="btn btn-primary btn-with-padding deposit-send-button">存入</button>
                         </div>
                       </div>
                   </div>
@@ -362,7 +362,7 @@ limitations under the License.
             <div class="modal-content">
               <form id="payment-form" class="needs-validation" novalidate="" method="POST" action="/payment">
                 <div class="modal-header">
-                  <h3 class="modal-title header-title" id="exampleModalLongTitle">Send a Payment</h3>
+                  <h3 class="modal-title header-title" id="exampleModalLongTitle">转出</h3>
                   <button type="button" class="close payment-cancel" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -370,7 +370,7 @@ limitations under the License.
                 <div class="modal-body">
                   <div class="row">
                     <div class="col-md-10 offset-md-1 mb-4">
-                      <label class="text-uppercase text-muted secondary-text mb-3" for="payment-accounts">Recipient</label>
+                      <label class="text-uppercase text-muted secondary-text mb-3" for="payment-accounts">收款人</label>
 
                       <select class="custom-select d-block w-100 mb-3" id="payment-accounts" name="account_num">
                         {% for account in contacts %}
@@ -379,7 +379,7 @@ limitations under the License.
                             {% endif %}
                         {% endfor %}
                         <option disabled>──────────</option>
-                        <option value="add">New Recipient</option>
+                        <option value="add">新建收款人</option>
                       </select>
                       <div id="otherAccountInputs" class="hidden">
                         <div class="input-group mb-3">
@@ -403,7 +403,7 @@ limitations under the License.
                       </div>
                     </div>
                     <div class="col-md-10 offset-md-1">
-                      <label class="text-uppercase text-muted secondary-text mb-3" for="payment-amount">Transaction Amount</label>
+                      <label class="text-uppercase text-muted secondary-text mb-3" for="payment-amount">转出金额</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend mr-2">
                           <span class="input-group-text"><span class="amount-font material-icons">attach_money</span></span>
@@ -420,8 +420,8 @@ limitations under the License.
                 <div class="modal-body">
                   <div class="row align-items-end text-right">
                     <div class="col-md-10 offset-md-1 text-right align-items-end">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-with-padding deposit-send-button">Send</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary btn-with-padding deposit-send-button">转出</button>
                       </div>
                     </div>
                 </div>
@@ -445,7 +445,7 @@ limitations under the License.
             <div class="row mb-3">
               <small>
                 This website is hosted for demo purposes only. It is not an
-                actual bank. This is not an official Google project.
+                actual bank.
               </small>
             </div>
         </div>
